@@ -2,7 +2,7 @@
 </script>
 
 <template>
-    <div class="mx-3 mt-11 md:mx-56 text-center">
+    <div class="mx-3 md:mx-56 mt-11 text-center">
         <div class="flex flex-col-reverse md:flex-row justify-between">
             <div class="my-auto">
                 <h1 class="text-5xl bg-clip-text text-transparent bg-gradient-to-br from-primary to-oyen md:text-7xl font-semibold text-center md:text-left h-28 md:h-40">Welcome to Dogshop</h1>            
