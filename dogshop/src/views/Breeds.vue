@@ -17,6 +17,9 @@ export default {
   methods: {
     toggleModal() {
       this.showModal = !this.showModal;
+      if (!this.showModal) {        
+        this.selectedBreed = '';
+      }
     },
   },
   created() {
@@ -50,12 +53,12 @@ export default {
             v-if="showModal && selectedBreed"
             class="fixed inset-0 flex items-center justify-center z-10"
         >
-            <div class="bg-oyen text-secondary py-2 w-[548px] h-64 rounded-3xl mx-5">                                
+            <div class="bg-oyen relative text-secondary py-2 w-[548px] h-auto rounded-3xl mx-5">                                
                 <h1 class="text-6xl font-semibold">{{ selectedBreed }}</h1>
                 <h2 class="text-4xl font-thin" v-if="dogs[selectedBreed] && dogs[selectedBreed].length">
                     Sub Breed
                 </h2>
-                <div v-if="dogs[selectedBreed] && dogs[selectedBreed].length" class="mt-7">
+                <div v-if="dogs[selectedBreed] && dogs[selectedBreed].length" class="mt-7 grid grid-cols-2 gap-2 md:grid md:grid-cols-4 md:gap-2 mx-4 mb-2">
                     <button v-for="subBreed in dogs[selectedBreed]" :key="subBreed" class="border-secondary border-2 px-3 py-2 rounded-full hover:bg-primary transition-all text-xl">
                         {{ subBreed }}
                     </button>
@@ -63,7 +66,7 @@ export default {
                 <div v-else>
                     <p>No Sub-Breed</p>
                 </div>                
-                <button @click="toggleModal" class="absolute md:right-[505px] md:-translate-y-44 right-9 -translate-y-44">X</button>
+                <button @click="toggleModal" class="absolute top-2 right-4">X</button>
             </div>
         </div>
         <div
