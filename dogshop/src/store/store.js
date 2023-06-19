@@ -16,6 +16,7 @@ export default createStore({
                 const res = await axios.get('https://dog.ceo/api/breeds/list/all')
                 const dogs =  res.data.message
                 commit('SET_DOGS', dogs)
+                console.log(dogs)
             } catch (err) {
                 console.error(err)
             }
